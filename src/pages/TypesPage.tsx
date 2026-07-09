@@ -4,7 +4,7 @@ import { personaTypes } from "../data/personaTypes";
 
 export function TypesPage() {
   return (
-    <div className="page-stack">
+    <div className="page-stack types-page">
       <section className="page-heading">
         <p className="page-heading__eyebrow">Type index</p>
         <h1>8つの人格タイプ</h1>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "../components/Button/Button";
 import { PersonaTypeAvatar } from "../components/PersonaTypeAvatar/PersonaTypeAvatar";
 import { SectionCard } from "../components/SectionCard/SectionCard";
-import { TypeBadge } from "../components/TypeBadge/TypeBadge";
 import { mockPersonaResult } from "../data/mockResult";
 import { personaTypes } from "../data/personaTypes";
 import type { PersonaResult } from "../types/persona";
@@ -22,46 +22,36 @@ export function HomePage() {
   }, []);
 
   return (
-    <div className="page-stack">
+    <div className="page-stack home-page">
       <section className="hero">
         <div className="hero-avatar-row" aria-label="Persona OSタイププレビュー">
           {personaTypes.map((type) => (
-            <PersonaTypeAvatar key={type.code} size="sm" type={type} />
+            <PersonaTypeAvatar
+              key={type.code}
+              size="lg"
+              type={type}
+              variant="hero"
+            />
           ))}
         </div>
         <p className="hero__eyebrow">PERSONA OS</p>
         <h1>Persona OS</h1>
-        <p className="hero__catch">性格は、1つのタイプでは終わらない。</p>
-        <p className="hero__text">
-          表の顔、裏の顔、地雷、扱い方まで。
-          <br />
-          あなたの人格OSを解析する。
-        </p>
+        <p className="hero__catch">今日の自分を、1枚の人格カードに。</p>
         <div className="hero__actions">
-          <Button fullWidth to="/diagnosis">
+          <Button className="hero__main-cta" fullWidth to="/diagnosis">
             診断を始める
-          </Button>
-          {latestResult ? (
-            <Button fullWidth to="/result" variant="secondary">
-              前回の結果を見る
-            </Button>
-          ) : null}
-          {latestResult ? (
-            <Button fullWidth to="/compatibility" variant="secondary">
-              相性を見る
-            </Button>
-          ) : null}
-          <Button fullWidth to="/types" variant="ghost">
-            8タイプを見る
           </Button>
         </div>
       </section>
 
-      <article className="home-card-preview">
+      <article className="home-card-preview" aria-label="今日のPersonaカード">
         <div className="home-card-preview__header">
-          <p className="section-card__eyebrow">Card preview</p>
+          <div>
+            <p className="section-card__eyebrow">Today&apos;s Persona</p>
+            <span>{latestResult ? "前回の診断結果" : "プレビュー"}</span>
+          </div>
           {featuredType ? (
-            <TypeBadge code={featuredType.code} color={featuredType.color} />
+            <PersonaTypeAvatar size="lg" type={featuredType} variant="hero" />
           ) : null}
         </div>
         <div className="home-card-preview__body">
@@ -70,6 +60,30 @@ export function HomePage() {
           <p>{featuredType?.title ?? "あなたの人格OSを1枚のカードに。"}</p>
         </div>
       </article>
+
+      <div className="home-action-grid" aria-label="ホーム導線">
+        <Link
+          className="home-action-card home-action-card--primary"
+          to={latestResult ? "/result" : "/diagnosis"}
+        >
+          <span>前回結果</span>
+          <strong>{latestResult ? "カードを見る" : "まず診断する"}</strong>
+          <b aria-hidden="true">→</b>
+        </Link>
+        <Link
+          className="home-action-card"
+          to={latestResult ? "/compatibility" : "/diagnosis"}
+        >
+          <span>相性診断</span>
+          <strong>{latestResult ? "2人で見る" : "結果が必要"}</strong>
+          <b aria-hidden="true">→</b>
+        </Link>
+        <Link className="home-action-card" to="/types">
+          <span>タイプ図鑑</span>
+          <strong>8タイプを見る</strong>
+          <b aria-hidden="true">→</b>
+        </Link>
+      </div>
 
       <SectionCard
         body={

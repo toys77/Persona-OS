@@ -47,7 +47,7 @@ export function ResultPage() {
   }
 
   return (
-    <div className="page-stack">
+    <div className="page-stack result-page">
       <section className="result-hero result-hero--card-first">
         {resultType ? (
           <div className="result-hero__avatar">

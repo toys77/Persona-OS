@@ -1,4 +1,4 @@
-const CACHE_NAME = "persona-os-pwa-v1";
+const CACHE_NAME = "persona-os-pwa-v2";
 
 const APP_SHELL = [
   "./",
@@ -17,6 +17,14 @@ const APP_SHELL = [
   "./icons/icon-512.png",
   "./icons/icon-192-maskable.png",
   "./icons/icon-512-maskable.png",
+  "./assets/personas/persona-void.png",
+  "./assets/personas/persona-lune.png",
+  "./assets/personas/persona-nova.png",
+  "./assets/personas/persona-raven.png",
+  "./assets/personas/persona-muse.png",
+  "./assets/personas/persona-terra.png",
+  "./assets/personas/persona-sol.png",
+  "./assets/personas/persona-echo.png",
 ];
 
 self.addEventListener("install", (event) => {

@@ -43,9 +43,11 @@ export function BottomNav() {
               to={item.to}
             >
               <span
-                className={["bottom-nav__dot", `bottom-nav__dot--${item.icon}`].join(
-                  " ",
-                )}
+                className={[
+                  "bottom-nav__icon",
+                  "bottom-nav__dot",
+                  `bottom-nav__dot--${item.icon}`,
+                ].join(" ")}
                 aria-hidden="true"
               />
               <span className="bottom-nav__label">{item.label}</span>

@@ -71,7 +71,7 @@ export function CompatibilityPage() {
   }
 
   return (
-    <div className="page-stack">
+    <div className="page-stack compatibility-page">
       <section className="page-heading">
         <p className="page-heading__eyebrow">Compatibility</p>
         <h1>相性診断</h1>
