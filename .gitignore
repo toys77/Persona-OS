@@ -1,6 +1,8 @@
 ﻿node_modules/
 dist/
 .tmp-chrome-profile/
+.pnpm-store/
+*.tsbuildinfo
 .env
 .env.*
 !.env.example
