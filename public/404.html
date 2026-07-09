@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Persona OS</title>
+    <script>
+      (function () {
+        var appRoutes = ["compatibility", "diagnosis", "result", "types"];
+        var path = window.location.pathname;
+        var segments = path.split("/").filter(Boolean);
+        var basePath = "/";
+
+        if (segments.length > 0 && appRoutes.indexOf(segments[0]) === -1) {
+          basePath = "/" + segments[0] + "/";
+        }
+
+        window.sessionStorage.setItem(
+          "persona-os:redirect-path",
+          path + window.location.search + window.location.hash
+        );
+        window.location.replace(basePath);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
