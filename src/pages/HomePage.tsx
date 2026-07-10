@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../components/Button/Button";
 import { PersonaTypeAvatar } from "../components/PersonaTypeAvatar/PersonaTypeAvatar";
@@ -14,6 +14,7 @@ export function HomePage() {
   const featuredType = personaTypes.find(
     (type) => type.code === featuredResult.typeCode,
   );
+  const heroVisualSrc = `${import.meta.env.BASE_URL}assets/hero/persona-characters-hero.png`;
 
   useEffect(() => {
     setLatestResult(
@@ -24,15 +25,13 @@ export function HomePage() {
   return (
     <div className="page-stack home-page">
       <section className="hero">
-        <div className="hero-avatar-row" aria-label="Persona OSタイププレビュー">
-          {personaTypes.map((type) => (
-            <PersonaTypeAvatar
-              key={type.code}
-              size="lg"
-              type={type}
-              variant="hero"
-            />
-          ))}
+        <div className="hero-visual" aria-label="Persona OSのキービジュアル">
+          <img
+            alt="Persona OSの8タイプキャラクター集合イラスト"
+            decoding="async"
+            loading="eager"
+            src={heroVisualSrc}
+          />
         </div>
         <p className="hero__eyebrow">PERSONA OS</p>
         <h1>Persona OS</h1>
@@ -44,7 +43,15 @@ export function HomePage() {
         </div>
       </section>
 
-      <article className="home-card-preview" aria-label="今日のPersonaカード">
+      <article
+        className="home-card-preview"
+        aria-label="今日のPersonaカード"
+        style={
+          {
+            "--result-card-color": featuredType?.color ?? "#8B5CF6",
+          } as CSSProperties
+        }
+      >
         <div className="home-card-preview__header">
           <div>
             <p className="section-card__eyebrow">Today&apos;s Persona</p>

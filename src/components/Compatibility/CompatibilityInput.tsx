@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { Button } from "../Button/Button";
 import { PersonaTypeAvatar } from "../PersonaTypeAvatar/PersonaTypeAvatar";
 import { TypeBadge } from "../TypeBadge/TypeBadge";
@@ -45,6 +46,7 @@ export function CompatibilityInput({
                 .join(" ")}
               key={type.code}
               onClick={() => onTypeChange(type.code)}
+              style={{ "--choice-color": type.color } as CSSProperties}
               type="button"
             >
               <PersonaTypeAvatar size="sm" type={type} />

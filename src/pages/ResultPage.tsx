@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { useLocation } from "react-router-dom";
 import { Button } from "../components/Button/Button";
 import { PersonaTypeAvatar } from "../components/PersonaTypeAvatar/PersonaTypeAvatar";
@@ -48,10 +48,17 @@ export function ResultPage() {
 
   return (
     <div className="page-stack result-page">
-      <section className="result-hero result-hero--card-first">
+      <section
+        className="result-hero result-hero--card-first"
+        style={
+          {
+            "--result-card-color": resultType?.color ?? "#8B5CF6",
+          } as CSSProperties
+        }
+      >
         {resultType ? (
           <div className="result-hero__avatar">
-            <PersonaTypeAvatar size="lg" type={resultType} />
+            <PersonaTypeAvatar size="lg" type={resultType} variant="hero" />
           </div>
         ) : null}
         <p className="result-hero__eyebrow">あなたのPersona OS</p>

@@ -2,6 +2,7 @@ import { useEffect, useState, type CSSProperties } from "react";
 import type { PersonaType, PersonaTypeCode } from "../../types/persona";
 
 type PersonaTypeAvatarProps = {
+  showBadge?: boolean;
   size?: "sm" | "md" | "lg";
   type: PersonaType;
   variant?: "plain" | "framed" | "hero";
@@ -23,6 +24,7 @@ function getPersonaAvatarSrc(typeCode: PersonaTypeCode) {
 }
 
 export function PersonaTypeAvatar({
+  showBadge = true,
   size = "md",
   type,
   variant = "framed",
@@ -43,6 +45,7 @@ export function PersonaTypeAvatar({
         `persona-avatar--${variant}`,
         `persona-avatar--${type.code.toLowerCase()}`,
         canUseImage ? "persona-avatar--image" : "",
+        !showBadge ? "persona-avatar--no-badge" : "",
       ].join(" ")}
       data-code={type.code}
       style={{ "--avatar-color": type.color } as CSSProperties}
@@ -64,7 +67,9 @@ export function PersonaTypeAvatar({
         <span className="persona-avatar__eye" />
         <span className="persona-avatar__mouth" />
       </span>
-      <span className="persona-avatar__code">{type.code.slice(0, 1)}</span>
+      {showBadge ? (
+        <span className="persona-avatar__code">{type.code.slice(0, 1)}</span>
+      ) : null}
     </span>
   );
 }

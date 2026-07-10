@@ -12,7 +12,7 @@ export const personaTypes: PersonaType[] = [
     landmine: "浅い正論",
     handling: "否定するなら代案も出せ",
     groupRole: "観測者・問題発見係",
-    color: "#7C3AED",
+    color: "#8B5CF6",
   },
   {
     code: "LUNE",
@@ -25,7 +25,7 @@ export const personaTypes: PersonaType[] = [
     landmine: "気にしすぎ",
     handling: "雑に扱うと静かに離れる",
     groupRole: "感情センサー・空気の調整役",
-    color: "#60A5FA",
+    color: "#5BB7E8",
   },
   {
     code: "NOVA",
@@ -38,7 +38,7 @@ export const personaTypes: PersonaType[] = [
     landmine: "落ち着いて",
     handling: "止めすぎず、仕上げ役を別に置く",
     groupRole: "起爆剤・ムードメーカー",
-    color: "#F97316",
+    color: "#FF9F43",
   },
   {
     code: "RAVEN",
@@ -51,7 +51,7 @@ export const personaTypes: PersonaType[] = [
     landmine: "理屈っぽい",
     handling: "正しさに少し温度を乗せると強い",
     groupRole: "参謀・チェック役",
-    color: "#64748B",
+    color: "#6B7280",
   },
   {
     code: "MUSE",
@@ -63,7 +63,7 @@ export const personaTypes: PersonaType[] = [
     landmine: "普通にして",
     handling: "意味や世界観を与えると動きやすい",
     groupRole: "アイデア係・世界観担当",
-    color: "#EC4899",
+    color: "#EC6AA5",
   },
   {
     code: "TERRA",
@@ -76,7 +76,7 @@ export const personaTypes: PersonaType[] = [
     landmine: "適当でいいじゃん",
     handling: "大丈夫と言わせすぎない",
     groupRole: "土台・管理係",
-    color: "#22C55E",
+    color: "#28A86B",
   },
   {
     code: "SOL",
@@ -88,7 +88,7 @@ export const personaTypes: PersonaType[] = [
     landmine: "まだ決められない",
     handling: "少し待てると信頼される",
     groupRole: "決断・統率・突破役",
-    color: "#EAB308",
+    color: "#F2C94C",
   },
   {
     code: "ECHO",
@@ -101,6 +101,6 @@ export const personaTypes: PersonaType[] = [
     landmine: "自分の意見ないの？",
     handling: "意見を出しても空気は壊れないと伝える",
     groupRole: "仲介役・バランサー",
-    color: "#14B8A6",
+    color: "#2BB8A8",
   },
 ];

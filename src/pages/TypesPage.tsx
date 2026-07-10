@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { PersonaTypeAvatar } from "../components/PersonaTypeAvatar/PersonaTypeAvatar";
 import { TypeBadge } from "../components/TypeBadge/TypeBadge";
 import { personaTypes } from "../data/personaTypes";
@@ -18,11 +19,16 @@ export function TypesPage() {
           <article
             className="type-card"
             key={type.code}
-            style={{ "--type-color": type.color } as React.CSSProperties}
+            style={{ "--type-color": type.color } as CSSProperties}
           >
             <div className="type-card__header">
               <div className="type-card__identity">
-                <PersonaTypeAvatar size="md" type={type} />
+                <PersonaTypeAvatar
+                  showBadge={false}
+                  size="lg"
+                  type={type}
+                  variant="hero"
+                />
                 <div>
                   <TypeBadge code={type.code} color={type.color} />
                   <h2>{type.name}</h2>

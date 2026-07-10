@@ -34,7 +34,9 @@ export function HandlingPersonaCard({ result }: HandlingPersonaCardProps) {
       </header>
 
       <section className="result-card__identity result-card__identity--compact">
-        {personaType ? <PersonaTypeAvatar size="md" type={personaType} /> : null}
+        {personaType ? (
+          <PersonaTypeAvatar size="md" type={personaType} variant="hero" />
+        ) : null}
         <div className="result-card__identity-text">
           <p className="result-card__code">
             <span>{result.typeCode}</span>-{result.subtypeNumber}
